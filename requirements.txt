@@ -1,5 +1,5 @@
 jupyter-book
-ipython3
+ipython
 matplotlib
 numpy
 pandas
