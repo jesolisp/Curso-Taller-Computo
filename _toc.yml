@@ -3,7 +3,6 @@
 
 format: jb-book
 root: docs/home
-logo: images/Tux.png
 
 chapters:
 - file: docs/JESP_01_Introduccion_Linux_Unix
