@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción a Linux/Unix &#8212; Taller de Cómputo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_01_Introduccion_Linux_Unix';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="JESP_02_Introduccion_programacion.html" />
+    <link rel="prev" title="Contenido del curso" href="home.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Taller de Cómputo</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Contenido del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a Linux/Unix</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yenchiah/jupyter-book-template/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_01_Introduccion_Linux_Unix.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/JESP_01_Introduccion_Linux_Unix.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción a Linux/Unix</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filosofia-de-linux-unix">Filosofía de Linux/Unix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios">Repositorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal">Terminal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lista-de-terminales">Lista de terminales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibles-con-posix">Compatibles con POSIX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativas">Alternativas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entornos-de-escritorio">Entornos de escritorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-crear-gui">Herramientas para crear GUI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-archivos-en-linux-unix">Sistema de Archivos en Linux/Unix.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablas-de-particiones">Tablas de particiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#master-boot-record-mbr">Master Boot Record (MBR)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guid-partition-table">GUID Partition Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers">Drivers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-gnu-linux-mint">Instalación de GNU/Linux Mint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-basicos-en-bash">Comandos básicos en bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-copiar-mover-y-archivos-y-directorios">Crear, copiar, mover y archivos y directorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empaquetado-compresion-y-conversion-de-archivos">Empaquetado, compresión y conversión de archivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-y-tipos-de-archivos-herramientas-de-busqueda">Ubicación y tipos de archivos, herramientas de búsqueda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-sistema">Información del sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion-interna-del-sistema-operativo">Documentación interna del Sistema Operativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red">Red</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administracion-de-usuario">Administración de usuario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-de-procesos">Gestión de procesos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comenzando-a-usar-la-linea-de-comandos">Comenzando a usar la línea de comandos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permisos-y-propietarios-de-un-archivo">Permisos y propietarios de un archivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-archivo">Tipos de archivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permisos-numericos">Permisos numéricos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-archivos">Atributos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cambia-el-propietario-del-archivo">Cambia el propietario del archivo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-shell">Programación Shell.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-y-monitoreo-de-procesos">Control y monitoreo de Procesos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-avanzados-en-bash">Comandos Avanzados en bash.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-shell-avanzada">Programación Shell avanzada.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-linux-unix">
+<h1>Introducción a Linux/Unix<a class="headerlink" href="#introduccion-a-linux-unix" title="Link to this heading">#</a></h1>
+<section id="filosofia-de-linux-unix">
+<h2>Filosofía de Linux/Unix<a class="headerlink" href="#filosofia-de-linux-unix" title="Link to this heading">#</a></h2>
+<p>En los 80s, Richard Stallman, quien fuera programador del laboratorio de inteligencia artificial del MIT (Massachusetts Institute of Technology), tuvo la idea de desarrollar un sistema operativo libre. Es decir, un SO con kernel, interfaz de usuario y aplicaciones sin licencias restrictivas sobre su uso, copia, distribución y modificación. Es así como nace GNU.</p>
+<p><img alt="Richard Stallman" src="../_images/richard-stallman.jpg" /></p>
+<p>A principio de los 90s, Linus Torvalds que estudiaba en la Universidad de Helsink comenzó a desarrollar un nuevo kernel para construir un sistema operativo más completo. Comenzó utilizando el compilador GNU C Compiler (desarrollado por Richard Stallman) y el sistema operativo MINIX (sistema desarrollado por Andrew S. Tanenbaum). Posteriormente compartió el código fuente de su kernel.</p>
+<p>Este sistema, además de utilizar componentes de GNU, compartía la característica de ser un sistema tipo UNIX gratuito y libre. Al ser de caracter público, miles de personas colaboran en el desarrollo del kernel de Linux siendo un proyecto importante <em>open source</em>.</p>
+<p><img alt="Linus Torvalds" src="../_images/LinusTorvalds.jpg" /></p>
+<p>Los desarrolladores decidicieron incluir el kernel de Linuz junto con una terminal (shell bash), gestores de ventanas, entornos de escritorio, compilador GCC entre otras aplicaciones de propósito general para dar nacimiento a las llamadas distribuciones de GNU/Linux.</p>
+<p><img alt="Linus Torvalds y Richard Stallman" src="../_images/linus-torvalds-richard-stallman.jpg" /></p>
+<p>Es importante no confundir Linux con GNU/Linux -aunque hay muchos usuarios que utilizan el término sin distinción. El primero hacer referencia al kernel mientras que el segundo se refiere a los SO con base en el kernel de Linux más aplicaciones GNU.</p>
+<p><img alt="Distribuciones de Linux" src="../_images/Linux_distros_tree.png" /></p>
+<p>¿Cuántas versiones de Windows conoces o has utilizado a lo largo de tu vida?</p>
+<p>¿Cuántas versiones de MacOS conoces o has utilizado a lo largo de tu vida?</p>
+<p>¿Cuántas distribuciones de GNU/Linux conoces o has utilizado a lo largo de tu vida?</p>
+<p>¿Cuántas distribuciones de GNU/Linux existen?</p>
+<p><img alt="Distribuciones de Linux completa" src="../_images/Linux_distros_complete.png" /></p>
+<section id="kernel">
+<h3>Kernel<a class="headerlink" href="#kernel" title="Link to this heading">#</a></h3>
+<p>Es un programa que conforma el núcleo central del sistema operativo (SO) de una computadora. El kernel -por su nombre en inglés- tiene el control completo sobre todos los sucesos del sistema y se carga en la memoria durante el inicio del sistema para permanecer ahí mientras esté encendida la computadora. Por esta razón, es importante que el kernel sea muy pequeño sin dejar de proporcionar los servicios esenciales que necesitan otros programas.</p>
+<p>Debido a su importancia, se carga en un área protegida de la memoria para evitar que otras partes del sistema operativo que se usan con menos frecuencia o los programas de aplicación lo sobrescriban. El kernel realiza tareas, ejecutar procesos y maneja interrupciones,</p>
+</section>
+<section id="repositorios">
+<h3>Repositorios<a class="headerlink" href="#repositorios" title="Link to this heading">#</a></h3>
+<p>Un repositorio es una ubicación de almacenamiento desde la que se recuperan los paquetes de software para su instalación.</p>
+<p>Los paquetes en los repositorios oficiales se actualizan constantemente. Esto quiere decir que cuando se actualiza un paquete, su versión anterior se elimina del repositorio.</p>
+</section>
+<section id="terminal">
+<h3>Terminal<a class="headerlink" href="#terminal" title="Link to this heading">#</a></h3>
+<p>Es un intérprete de línea de comandos que proporciona una interfaz de usuario tradicional para el sistema operativo Unix y para sistemas tipo Unix. Los usuarios ingresan comandos de texto para que los ejecute el intérprete de línea de comandos o bien, el usuario puede crear scripts de texto de uno o más de dichos comandos.</p>
+</section>
+<section id="lista-de-terminales">
+<h3>Lista de terminales<a class="headerlink" href="#lista-de-terminales" title="Link to this heading">#</a></h3>
+<section id="compatibles-con-posix">
+<h4>Compatibles con POSIX<a class="headerlink" href="#compatibles-con-posix" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.gnu.org/software/bash/"><strong>Bash</strong></a></p></li>
+<li><p><a class="reference external" href="http://gondor.apana.org.au/~herbert/dash/">Dash</a></p></li>
+<li><p><a class="reference external" href="http://www.kornshell.com">KornShell</a></p></li>
+<li><p><a class="reference external" href="https://www.oilshell.org">Oil Shell</a></p></li>
+<li><p><a class="reference external" href="https://yash.osdn.jp">Yash</a></p></li>
+<li><p><a class="reference external" href="https://www.zsh.org/">Zsh</a></p></li>
+</ul>
+</section>
+<section id="alternativas">
+<h4>Alternativas<a class="headerlink" href="#alternativas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tcsh.org">C shell</a></p></li>
+<li><p><a class="reference external" href="https://elv.sh">Elvish</a></p></li>
+<li><p><a class="reference external" href="https://fishshell.com/">fish</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.redox-os.org/redox-os/ion/">ion</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NeowayLabs/nash">Nash</a></p></li>
+<li><p><a class="reference external" href="https://www.nushell.sh">nushell</a></p></li>
+<li><p><a class="reference external" href="https://github.com/michaelmacinnis/oh">Oh</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PowerShell/PowerShell">PowerShell</a></p></li>
+<li><p><a class="reference external" href="http://doc.cat-v.org/plan_9/4th_edition/papers/rc">rc</a></p></li>
+<li><p><a class="reference external" href="https://xon.sh/">xonsh</a></p></li>
+</ul>
+<p>Para mayor información, puedes consultar el siguiente enlace: <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html">https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html</a></p>
+</section>
+</section>
+<section id="entornos-de-escritorio">
+<h3>Entornos de escritorio<a class="headerlink" href="#entornos-de-escritorio" title="Link to this heading">#</a></h3>
+<p>Un entorno de escritorio (DE) es una implementación metafórica de escritorio compuesta de un conjunto de programas que comparten una interfaz gráfica de usuario (GUI) común.</p>
+<p>Un DE agrupa una variedad de componentes para proporcionar elementos de interfaz gráfica de usuario comunes. En éstos se incluyen iconos, barras de herramientas, fondos de pantalla y widgets de escritorio.</p>
+<p>La mayoría de los DE incluyen aplicaciones y utilidades integradas. Así como su propio administrador de ventanas. No obstante, estos administradores se pueden reemplazar.</p>
+<p>Algunos DE que podemos encontrar entre las distribuciones de GNU/Linux son:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.buddiesofbudgie.org">Budgie</a></p></li>
+<li><p><a class="reference external" href="https://github.com/linuxmint/Cinnamon"><strong>Cinnamon</strong></a></p></li>
+<li><p><a class="reference external" href="https://cutefish-ubuntu.github.io">Cutefish</a></p></li>
+<li><p><a class="reference external" href="https://www.deepin.org/">Deepin Desktop Environment</a></p></li>
+<li><p><a class="reference external" href="https://www.enlightenment.org/">Enlightenment</a></p></li>
+<li><p><a class="reference external" href="https://www.gnome.org/">GNOME</a></p></li>
+<li><p><a class="reference external" href="https://wiki.gnome.org/Projects/GnomeFlashback">GNOME Flashback</a></p></li>
+<li><p><a class="reference external" href="https://www.kde.org/plasma-desktop">KDE Plasma</a></p></li>
+<li><p><a class="reference external" href="https://lxde.org/">LXDE</a></p></li>
+<li><p><a class="reference external" href="https://lxqt.github.io/">LXQt</a></p></li>
+<li><p><a class="reference external" href="https://mate-desktop.org/">MATE</a></p></li>
+<li><p><a class="reference external" href="https://sugarlabs.org/">Sugar</a></p></li>
+<li><p><a class="reference external" href="https://www.ukui.org/">UKUI</a></p></li>
+<li><p><a class="reference external" href="https://xfce.org/">Xfce</a></p></li>
+</ul>
+</section>
+<section id="herramientas-para-crear-gui">
+<h3>Herramientas para crear GUI<a class="headerlink" href="#herramientas-para-crear-gui" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Qt</p></li>
+<li><p>Kit de herramientas multiplataforma de widgets que utiliza C++ estándar pero hace un uso extensivo de un generador de código especial (llamado Meta Object Compiler, o moc) junto con varias macros para enriquecer el lenguaje.</p></li>
+<li><p><strong>GTK</strong></p></li>
+<li><p>Kit de herramientas multiplataforma para crear interfaces gráficas de usuario. Ofrece un conjunto completo de widgets y suele ser adecuado para proyectos pequeños hasta conjuntos completos de aplicaciones.</p></li>
+</ul>
+<p>Los DE van ligados con Qt o GTK, por ejemplo:</p>
+<ul class="simple">
+<li><p>KDE <span class="math notranslate nohighlight">\(\rightarrow\)</span> Qt</p></li>
+<li><p>LXQt <span class="math notranslate nohighlight">\(\rightarrow\)</span> Qt</p></li>
+<li><p>Gnome <span class="math notranslate nohighlight">\(\rightarrow\)</span> GTK</p></li>
+<li><p>Xfce <span class="math notranslate nohighlight">\(\rightarrow\)</span> GTK</p></li>
+<li><p>Cinnamon <span class="math notranslate nohighlight">\(\rightarrow\)</span> GTK</p></li>
+</ul>
+<p>En nuestro caso, al trabajar con GNU/Linux Mint, estaremos bajo Cinnamon + GTK</p>
+<p><img alt="Cinnamon DE" src="../_images/Cinnamon.png" /></p>
+</section>
+</section>
+<section id="sistema-de-archivos-en-linux-unix">
+<h2>Sistema de Archivos en Linux/Unix.<a class="headerlink" href="#sistema-de-archivos-en-linux-unix" title="Link to this heading">#</a></h2>
+<p>Una de las principales diferencias entre GNU/Linux y Microsoft Windows es el sistema de archivos y particiones. Por ejemplo, en Windows para referirnos al disco duro primario utilizamos <code class="docutils literal notranslate"><span class="pre">C:</span></code> y el resto de letras para particiones o unidades extraibles.</p>
+<p><img alt="Unidades de Win2" src="../_images/win2.png" /></p>
+<p>El sistema de ficheros que utiliza Windows es NTFS y FAT32.</p>
+<p>Linux a diferencia de Windows, utiliza ficheros y similar a UNIX cualquier dispositivo accesible por la computadora es tratado como fichero. Así mismo, utiliza directorios -tratados como ficheros especiales- para acceder a discos extraibles, impresoras u otros periféricos.</p>
+<p>Por ejemplo, en Linux, el directorio principal se conoce como <code class="docutils literal notranslate"><span class="pre">root</span></code> y se identifica por el caracter <code class="docutils literal notranslate"><span class="pre">/</span></code>. Dentro de este directorio se organizan los subdirectorios restantes. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">home</span></code> que es el directorio personal que coincide con el nombre de cada usuario.</p>
+<p>También tenemos el directorio <code class="docutils literal notranslate"><span class="pre">bin</span></code> que contiene todos los binarios del sistema, <code class="docutils literal notranslate"><span class="pre">boot</span></code>que guarda los ficheros necesarios para que arranque el sistema operativo y finalmente <code class="docutils literal notranslate"><span class="pre">dev</span></code>que hace referencia a los diversos tipos de dispositivos físicos.</p>
+<p>Linux nos permite crear particiones y montar algunos ficheros. Por ejemplo <code class="docutils literal notranslate"><span class="pre">home</span></code> en una partición distinta al sistema principal. Para mejorar la eficiencia, Linux hace uso de una partición especial llamada <code class="docutils literal notranslate"><span class="pre">swap</span></code> para mover información entre la memoria y el disco.</p>
+<p><img alt="Sistema de archivos de Linux" src="../_images/Sistema-de-archivos-de-Linux.jpg" /></p>
+<p>Mientras que Windows tiene soporte para particiones NTFS y FAT32, Linux de forma nativa tiene soporte para EXT3, EXT4, FAT32, NTFS, NFS, JFS, HFS y HFS+.</p>
+<section id="tablas-de-particiones">
+<h3>Tablas de particiones<a class="headerlink" href="#tablas-de-particiones" title="Link to this heading">#</a></h3>
+<p>Hay dos tipos principales de tabla de particiones disponibles. Las secciones Master Boot Record (MBR) y GUID Partition Table (GPT) junto con una discusión sobre cómo elegir entre los dos. Una tercera alternativa menos común es usar un disco sin particiones, que también se analiza.</p>
+<section id="master-boot-record-mbr">
+<h4>Master Boot Record (MBR)<a class="headerlink" href="#master-boot-record-mbr" title="Link to this heading">#</a></h4>
+<p>Son los primeros 512 bytes de un dispositivo de almacenamiento. Contiene el gestor de arranque del sistema operativo y la tabla de particiones del dispositivo de almacenamiento. Es importante en el proceso de arranque en los sistemas BIOS.</p>
+<p>En la tabla de particiones MBR (también se le suele llamar tabla de particiones DOS o MS-DOS) existen 3 tipos de particiones:</p>
+<ul class="simple">
+<li><p>Primario</p></li>
+<li><p>Extendido</p></li>
+<li><p>Lógico</p></li>
+</ul>
+</section>
+<section id="guid-partition-table">
+<h4>GUID Partition Table<a class="headerlink" href="#guid-partition-table" title="Link to this heading">#</a></h4>
+<p>Es un esquema de particiones que forma parte de la especificación de la Interfaz de Firmware Extensible Unificada ( Unified Extensible Firmware Interface-UEFI). Utiliza identificadores únicos globales (GUID), o UUID en el mundo de Linux, para definir particiones y tipos de partición. Está diseñado para tener éxito en el método de esquema de partición Master Boot Record.</p>
+<p>Al comienzo de un disco de tabla de particiones GUID, hay un registro de inicio maestro (PMBR) protector para proteger contra el software que no reconoce GPT. Este MBR de protección, al igual que un MBR ordinario, tiene un área de código de arranque que se puede usar para el arranque de BIOS/GPT con cargadores de arranque que lo admitan.</p>
+<p>La <a class="reference external" href="https://wiki.archlinux.org/title/Partitioning">Wiki de GNU/Linux</a> considera lo siguiente:</p>
+<p>Algunos puntos a tener en cuenta a la hora de elegir:</p>
+<ul class="simple">
+<li><p>Para realizar un arranque dual con Windows (tanto de 32 bits como de 64 bits) utilizando Legacy BIOS, se requiere el esquema MBR.</p></li>
+<li><p>Para el arranque dual de Windows de 64 bits usando el modo UEFI en lugar del BIOS, se requiere el esquema GPT.</p></li>
+<li><p>Si se tiene hardware antiguo, especialmente en computadoras portátiles antiguas, considere elegir MBR porque es posible que su BIOS no sea compatible con GPT.</p></li>
+<li><p>Si está particionando un disco de más de 2 TiB, debe usar GPT.</p></li>
+<li><p>Se recomienda utilizar siempre GPT para el arranque UEFI, ya que algunas implementaciones de UEFI no admiten el arranque en el MBR en modo UEFI.</p></li>
+<li><p>Si no se aplica nada de lo anterior, puede elegir entre GPT y MBR.</p></li>
+</ul>
+<p><strong>Observación.</strong> Dado que GPT es más moderno, se recomienda en este caso.</p>
+<p>Algunas ventajas de GPT sobre MBR son:</p>
+<ul class="simple">
+<li><p>Proporciona un GUID de disco único y un GUID de partición único (PARTUUID) para cada partición.</p></li>
+<li><p>Proporciona un nombre de partición independiente del sistema de archivos (PARTLABEL).</p></li>
+<li><p>Número arbitrario de particiones: depende del espacio asignado para la tabla de particiones. * No se necesitan particiones lógicas y extendidas. La tabla GPT contiene espacio para definir 128 particiones.</p></li>
+<li><p>Utiliza LBA de 64 bits para almacenar números de sector; el tamaño máximo de disco direccionable es de 2 ZiB. <strong>Observación.</strong> MBR se limita a direccionar 2 TiB de espacio por unidad.</p></li>
+<li><p>Almacena un encabezado de respaldo y una tabla de particiones al final del disco que ayuda en la recuperación en caso de que los principales estén dañados.</p></li>
+<li><p>Sumas de verificación CRC32 para detectar errores y corrupción del encabezado y la tabla de particiones.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="drivers">
+<h2>Drivers<a class="headerlink" href="#drivers" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Una vez instalado Linux Mint, podemos verificar los controladores de hardware disponibles.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Inicio Menú <span class="math notranslate nohighlight">\(\rightarrow\)</span> Administración <span class="math notranslate nohighlight">\(\rightarrow\)</span> Administrador de controladores.</p></li>
+</ul>
+<p><img alt="" src="../_images/mintdrivers.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Marque las casillas de verificación correspondientes para seleccionar los controladores disponibles y haga clic en Aplicar cambios.</p></li>
+<li><p>Reinicia la computadora.</p></li>
+</ol>
+</section>
+<section id="instalacion-de-gnu-linux-mint">
+<h2>Instalación de GNU/Linux Mint<a class="headerlink" href="#instalacion-de-gnu-linux-mint" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Descargar GNU/Linux Mint del siguiente enlace: <a class="reference external" href="https://linuxmint.com/download.php">https://linuxmint.com/download.php</a></p></li>
+<li><p>Linux Mint viene en 3 sabores diferentes, cada uno con un entorno de escritorio diferente.</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Cinnamon</strong>. El escritorio más moderno, innovador y completo.</p></li>
+</ul>
+<p><img alt="Cinnamon" src="../_images/cinnamon.png" /></p>
+<ul class="simple">
+<li><p>MATE. Un escritorio más tradicional y más rápido.</p></li>
+</ul>
+<p><img alt="MATE" src="../_images/mate.png" /></p>
+<ul class="simple">
+<li><p>Xfce. El escritorio más ligero.</p></li>
+</ul>
+<p><img alt="Xfce" src="../_images/xfce.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>32 o 64 bits.
+Desde la versión 20 en adelante, solo está disponible la versión de 64 bits.</p></li>
+</ol>
+<p>Las imágenes ISO de 32 bits se proporcionan para compatibilidad con computadoras más antiguas. La mayoría de las computadoras pueden ejecutarse en 64 bits.</p>
+<p><strong>Observación.</strong> Si tu computadora fue fabricada después de 2007, es posible que tengas un procesador de 64 bits.</p>
+<ol class="arabic simple" start="4">
+<li><p>Para instalar, es necesario hacer doble click en <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Linux</span> <span class="pre">Mint</span></code></p></li>
+<li><p>Selecciona el lenguaje</p></li>
+</ol>
+<p><img alt="installer-language" src="../_images/installer-language.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>Conectate a internet</p></li>
+</ol>
+<p><img alt="installer-internet" src="../_images/installer-internet.png" /></p>
+<ol class="arabic simple" start="7">
+<li><p>Si pudiste conectarte a internet, entonces selecciona la casilla</p></li>
+</ol>
+<p><img alt="installer-codecs" src="../_images/installer-codecs.png" /></p>
+<ol class="arabic simple" start="8">
+<li><p>Escoge el tipo de instalación</p></li>
+</ol>
+<p><img alt="installer-install" src="../_images/installer-install.png" /></p>
+<ol class="arabic simple" start="9">
+<li><p>Selecciona tu zona horario</p></li>
+</ol>
+<p><img alt="installer-install" src="../_images/installer-install.png" /></p>
+<ol class="arabic simple" start="10">
+<li><p>Selecciona la distribución de tu teclado</p></li>
+</ol>
+<p><img alt="installer-keyboard" src="../_images/installer-keyboard.png" /></p>
+<ol class="arabic simple" start="11">
+<li><p>Ingresa los detalles de usuario</p></li>
+</ol>
+<p><img alt="installer-user" src="../_images/installer-user.png" /></p>
+<ol class="arabic simple" start="12">
+<li><p>Espera mientras se termina de instalar Linux Mint</p></li>
+</ol>
+<p><img alt="installer-slideshow" src="../_images/installer-slideshow.png" /></p>
+<ol class="arabic simple" start="13">
+<li><p>Reinicia la computadora</p></li>
+</ol>
+<p><img alt="installer-finished" src="../_images/installer-finished.png" /></p>
+</section>
+<section id="comandos-basicos-en-bash">
+<h2>Comandos básicos en bash<a class="headerlink" href="#comandos-basicos-en-bash" title="Link to this heading">#</a></h2>
+</section>
+<section id="crear-copiar-mover-y-archivos-y-directorios">
+<h2>Crear, copiar, mover y archivos y directorios<a class="headerlink" href="#crear-copiar-mover-y-archivos-y-directorios" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span></code> – Lista el directorio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> – Lista los archivos en el directorio actual utilizando formato largo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-laC</span></code> – Lista los archivos en el directorio actual utilizando formato largo y los muestra en columnas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code> – Lista los archivos en el directorio actual e indica el tipo de archivo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code> – Listado formateado con archivos ocultos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">dir</span></code> – Cambia el directorio a dir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> – Cambia a <code class="docutils literal notranslate"><span class="pre">home</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">dir</span></code> – Crea un directorio <code class="docutils literal notranslate"><span class="pre">dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> – Muestra el directorio actual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">name</span></code> – Eliminar un archivo o directorio llamado <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">dir</span></code> – Elimina el directorio <code class="docutils literal notranslate"><span class="pre">dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-f</span> <span class="pre">file</span></code> – Forza a eliminar <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">dir</span></code> – Forza a eliminar un directorio completo <code class="docutils literal notranslate"><span class="pre">dir</span></code> así como todos sus archivos y subdirectorios (<strong>utilizar con extrema precaución</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file1</span> <span class="pre">file2</span></code> – Copia <code class="docutils literal notranslate"><span class="pre">file1</span></code> a <code class="docutils literal notranslate"><span class="pre">file2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">dir1</span> <span class="pre">dir2</span></code> – Copia <code class="docutils literal notranslate"><span class="pre">dir1</span></code> a <code class="docutils literal notranslate"><span class="pre">dir2</span></code>; Crea <code class="docutils literal notranslate"><span class="pre">dir2</span></code> si éste no existe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file</span> <span class="pre">/home/dirname</span> <span class="pre">–</span> <span class="pre">Copia</span> <span class="pre">el</span> <span class="pre">archivo</span> <span class="pre">llamado</span> </code>file<code class="docutils literal notranslate"><span class="pre">al</span> <span class="pre">directorio</span></code>/home/dirname`</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">file</span> <span class="pre">/home/dirname</span></code> – Mueveve el archivo llamado <code class="docutils literal notranslate"><span class="pre">file</span></code> al directorio <code class="docutils literal notranslate"><span class="pre">/home/dirname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">file1</span> <span class="pre">file2</span></code> – Renombra o mueve el archivo <code class="docutils literal notranslate"><span class="pre">file1</span></code> a <code class="docutils literal notranslate"><span class="pre">file2</span></code>; si <code class="docutils literal notranslate"><span class="pre">file2</span></code> es un directorio existente, mueve <code class="docutils literal notranslate"><span class="pre">file1</span></code> dentro del directorio <code class="docutils literal notranslate"><span class="pre">file2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">file</span> <span class="pre">link</span></code> – Crea un enlace simbólico a <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">file</span></code> – Crea o actualiza <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">file</span></code> – Coloca la entrada estándar en el archivo <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">file</span></code> – Muestra el archivo llamado <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">more</span> <span class="pre">file</span></code> – Muestra el archivo <code class="docutils literal notranslate"><span class="pre">file</span></code> una página a la vez, cambiando a la siguiente con la barra espaciadora</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">file</span></code> – Salida de las 10 primeras líneas de <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-20</span> <span class="pre">file</span></code> – Muestra las primeras 20 líneas del archivo <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">file</span></code> – Salida de las últimas 10 líneas de <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-20</span> <span class="pre">file</span></code> – Muestra las últimas 20 líneas del archivo <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">file</span></code> – Muestra el contenido del archivo a medida que crece, comenzando con las últimas 10 líneas</p></li>
+</ul>
+</section>
+<section id="empaquetado-compresion-y-conversion-de-archivos">
+<h2>Empaquetado, compresión y conversión de archivos<a class="headerlink" href="#empaquetado-compresion-y-conversion-de-archivos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cf</span> <span class="pre">file.tar</span> <span class="pre">files</span></code> – Crea un <code class="docutils literal notranslate"><span class="pre">tar</span></code> llamado <code class="docutils literal notranslate"><span class="pre">file.tar</span></code> que contiene <code class="docutils literal notranslate"><span class="pre">files</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xf</span> <span class="pre">file.tar</span></code> – Extrae los archivos de <code class="docutils literal notranslate"><span class="pre">file.tar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">czf</span> <span class="pre">file.tar.gz</span> <span class="pre">files</span></code> – Crea un <code class="docutils literal notranslate"><span class="pre">tar</span></code> con compresión Gzip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xzf</span> <span class="pre">file.tar.gz</span></code> – Extrae un <code class="docutils literal notranslate"><span class="pre">tar</span></code> utilizando Gzip</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">cjf</span> <span class="pre">file.tar.bz2</span></code> – Crea un <code class="docutils literal notranslate"><span class="pre">tar</span></code> con compresión Bzip2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xjf</span> <span class="pre">file.tar.bz2</span></code> – Extrae un <code class="docutils literal notranslate"><span class="pre">tar</span></code> using Bzip2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gzip</span> <span class="pre">file</span></code>– Comprime <code class="docutils literal notranslate"><span class="pre">file</span></code> y lo renombra en <code class="docutils literal notranslate"><span class="pre">file.gz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gzip</span> <span class="pre">-d</span> <span class="pre">file.gz</span></code> – Descomprime <code class="docutils literal notranslate"><span class="pre">file.gz</span></code> y lo regresa a <code class="docutils literal notranslate"><span class="pre">file</span></code></p></li>
+</ul>
+</section>
+<section id="ubicacion-y-tipos-de-archivos-herramientas-de-busqueda">
+<h2>Ubicación y tipos de archivos, herramientas de búsqueda<a class="headerlink" href="#ubicacion-y-tipos-de-archivos-herramientas-de-busqueda" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">pattern</span> <span class="pre">files</span></code> – Buscar patrón en archivos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-r</span> <span class="pre">pattern</span> <span class="pre">dir</span></code> – Busca recursivamente un patrón en <code class="docutils literal notranslate"><span class="pre">dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">pattern</span></code> - Busca un patrón en la salida de <code class="docutils literal notranslate"><span class="pre">command</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locate</span> <span class="pre">file</span></code> – Encuentra todas las instancias de archivo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-name</span> <span class="pre">filename</span></code> - Comienza con el directorio raíz, busca el archivo llamado <code class="docutils literal notranslate"><span class="pre">filename</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">/</span> <span class="pre">-name</span> <span class="pre">&quot;*filename*&quot;</span></code> – Comienza con el directorio raíz, busca el archivo que contiene la cadena <code class="docutils literal notranslate"><span class="pre">filename</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locate</span> <span class="pre">filename</span></code> - Encuentra un archivo llamado <code class="docutils literal notranslate"><span class="pre">filename</span></code> usando el comando de localización. Esto supone que ya ha utilizado el comando <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> (ver siguiente)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updatedb</span></code> - Crea o actualiza la base de datos de archivos en todos los sistemas de archivos adjuntos al directorio raíz de Linux</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">filename</span></code> - Muestra el subdirectorio que contiene el archivo ejecutable llamado <code class="docutils literal notranslate"><span class="pre">filename</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">TextStringToFind</span> <span class="pre">/dir</span></code> - Comienza con el directorio llamado <code class="docutils literal notranslate"><span class="pre">dir</span></code>, busca y enumera todos los archivos que contienen <code class="docutils literal notranslate"><span class="pre">TextStringToFind</span></code></p></li>
+</ul>
+</section>
+<section id="informacion-del-sistema">
+<h2>Información del sistema<a class="headerlink" href="#informacion-del-sistema" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> – Muestra la fecha y hora actual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cal</span></code> – Mostrar el calendario de este mes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uptime</span></code> – Muestra el tiempo de actividad actual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> – Muestra quién está en línea</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whoami</span></code> – Quién está conectado como</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finger</span> <span class="pre">user</span></code> – Muestra información sobre el usuario</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code> – Muestra información del kernel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/cpuinfo</span></code> – Información del CPU</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/meminfo</span></code> – Información de la memoria</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">-h</span></code> – Muestra el uso del disco</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">du</span></code> – Mostrar el uso del espacio del directorio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">free</span></code> – Mostrar uso de memoria y <code class="docutils literal notranslate"><span class="pre">swap</span></code></p></li>
+</ul>
+</section>
+<section id="documentacion-interna-del-sistema-operativo">
+<h2>Documentación interna del Sistema Operativo<a class="headerlink" href="#documentacion-interna-del-sistema-operativo" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">apropos</span> <span class="pre">subject</span></code> – Lista de páginas de manual por tema</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">-k</span> <span class="pre">keyword</span></code> – Mostrar páginas de manual que contengan <code class="docutils literal notranslate"><span class="pre">keyword</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">command</span></code> – Muestra el manual para <code class="docutils literal notranslate"><span class="pre">command</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">-t</span> <span class="pre">man</span> <span class="pre">|</span> <span class="pre">ps2pdf</span></code> - &gt; man.pdf  – Crea un pdf de una página del manual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">command</span></code> – Muestra el nombre de la ruta completa de <code class="docutils literal notranslate"><span class="pre">command</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">command</span></code> – Ver cuánto tiempo toma `command</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whereis</span> <span class="pre">app</span> <span class="pre">–</span> <span class="pre">Muestra</span> <span class="pre">una</span> <span class="pre">posible</span> <span class="pre">localización</span> <span class="pre">de</span> </code>app`</p></li>
+<li><p>`which app – Muestra qué aplicación se ejecutará de forma predeterminada. Este muestra la ruta completa</p></li>
+</ul>
+</section>
+<section id="red">
+<h2>Red<a class="headerlink" href="#red" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> – Lista las direcciones IP para todos los dispositivos en la máquina local</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iwconfig</span></code> – Se utiliza para configurar los parámetros de la interfaz de red que son específicos de la operación inalámbrica (por ejemplo: la frecuencia)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iwlist</span></code> – se utiliza para mostrar información adicional de una interfaz de red inalámbrica que <code class="docutils literal notranslate"><span class="pre">iwconfig</span></code> no muestra</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">host</span></code> – Ping host y resultados de salida</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whois</span> <span class="pre">domain</span></code> – Obtener información whois para el dominio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">domain</span></code> – Obtener información DNS para el dominio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">-x</span> <span class="pre">host</span></code> – Host de búsqueda inversa</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">file</span></code> – Descarga un archivo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">-c</span> <span class="pre">file</span></code> – Continua una descarga detenida</p></li>
+</ul>
+</section>
+<section id="ssh">
+<h2>SSH<a class="headerlink" href="#ssh" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">user&#64;host</span></code> – Conecta a <code class="docutils literal notranslate"><span class="pre">host</span></code> como <code class="docutils literal notranslate"><span class="pre">user</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-p</span> <span class="pre">port</span> <span class="pre">user&#64;host</span></code> – Conecta a <code class="docutils literal notranslate"><span class="pre">host</span></code> en el puerto <code class="docutils literal notranslate"><span class="pre">port</span></code> como <code class="docutils literal notranslate"><span class="pre">user</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span> <span class="pre">user&#64;host</span></code> – Agrega una llave al <code class="docutils literal notranslate"><span class="pre">host</span></code> para <code class="docutils literal notranslate"><span class="pre">user</span></code> para habilitar un inicio de sesión con clave o sin contraseña</p></li>
+</ul>
+</section>
+<section id="administracion-de-usuario">
+<h2>Administración de usuario<a class="headerlink" href="#administracion-de-usuario" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">adduser</span> <span class="pre">accountname</span></code> – Crea un nuevo usuario llamado <code class="docutils literal notranslate"><span class="pre">accountname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">accountname</span></code> – Proporciona a <code class="docutils literal notranslate"><span class="pre">accountname</span></code> una nueva contraseña</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">su</span></code> – Inicie sesión como superusuario desde el inicio de sesión actual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exit</span></code> – Deja de ser superusuario y vuelve a ser usuario normal</p></li>
+</ul>
+</section>
+<section id="gestion-de-procesos">
+<h2>Gestión de procesos<a class="headerlink" href="#gestion-de-procesos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ps</span></code> – Muestra tus procesos actualmente activos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">top</span></code> – Mostrar todos los procesos en ejecución</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">pid</span></code> – Matar id de proceso pid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">killall</span> <span class="pre">proc</span></code> – Mata todos los procesos llamados <code class="docutils literal notranslate"><span class="pre">proc</span></code> (<strong>use con extrema precaución</strong>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bg</span></code> – Lista los trabajos detenidos o en segundo plano; reanudar un trabajo detenido en segundo plano</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fg</span></code> – Trae el trabajo más reciente a primer plano</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fg</span> <span class="pre">n</span></code> – Trae el trabajo n al primer plano</p></li>
+</ul>
+</section>
+<section id="comenzando-a-usar-la-linea-de-comandos">
+<h2>Comenzando a usar la línea de comandos<a class="headerlink" href="#comenzando-a-usar-la-linea-de-comandos" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://blog.desdelinux.net/wp-content/uploads/2011/10/debian_cubo_comandos.png.webp">Cubo de comandos de Debian</a></p>
+<p><img alt="debian_cubo_comandos" src="../_images/debian_cubo_comandos.png" /></p>
+<p><a class="reference external" href="https://blog.desdelinux.net/wp-content/uploads/2011/10/ubuntu_cubo_comando.png.webp">Cubo de comandos de Ubuntu</a></p>
+<p><img alt="debian_cubo_comandos" src="../_images/ubuntu_cubo_comando.png" /></p>
+<p>Los permisos en Linux o GNU/Linux son importantes y se pueden hacer desde un entorno gráfico o desde la línea de comandos. Esto permite el acceso a los usuarios en nuestro equipo restringiendo su acceso o modificación. Por ejemplo, para la línea de comandos podemos utilizar el siguiente comando.</p>
+<p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">octal</span> <span class="pre">file</span></code> – Cambie los permisos de archivo a octal, que se pueden encontrar por separado para usuario, grupo y mundo agregando: 4: leer (r), 2: escribir (w), 1: ejecutar (x)</p>
+<p>Ejemplos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span></code> – Lee, escribe, ejecuta para todos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">755</span></code> – <code class="docutils literal notranslate"><span class="pre">rwx</span></code> para propietario, <code class="docutils literal notranslate"><span class="pre">rx</span></code> para grupo y mundo</p></li>
+</ul>
+<p>Para más opciones, consulta <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">chmod</span></code>.</p>
+</section>
+<section id="permisos-y-propietarios-de-un-archivo">
+<h2>Permisos y propietarios de un archivo<a class="headerlink" href="#permisos-y-propietarios-de-un-archivo" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">owner</span></code> - Usuario que creó y que tiene un archivo o directorio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group</span></code> - Todos los usuarios que son miembros del mismo grupo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">others</span></code> - Resto de los usuarios del sistema que no son <code class="docutils literal notranslate"><span class="pre">owner</span></code> ni miembros de <code class="docutils literal notranslate"><span class="pre">group</span></code>.</p></li>
+</ul>
+<p>Cuando queremos saber qué permisos tiene un archivo en particular y a qué usuario le pertenece, podemos utilizar el siguiente comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="n">nombre_archivo</span>
+</pre></div>
+</div>
+<section id="tipos-de-archivo">
+<h3>Tipos de archivo<a class="headerlink" href="#tipos-de-archivo" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Tipo de archivo</p></th>
+<th class="head text-center"><p>Significado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>d</p></td>
+<td class="text-center"><p>Directorio</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>l</p></td>
+<td class="text-center"><p>Enlace simbólico</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>s</p></td>
+<td class="text-center"><p>Socket</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>p</p></td>
+<td class="text-center"><p>Pipe</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="permisos-numericos">
+<h3>Permisos numéricos<a class="headerlink" href="#permisos-numericos" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Binario</p></th>
+<th class="head text-center"><p>Decimal</p></th>
+<th class="head text-center"><p>Permisos</p></th>
+<th class="head text-center"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>000</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">---</span></code></p></td>
+<td class="text-center"><p>Ningún permiso</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>001</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">--x</span></code></p></td>
+<td class="text-center"><p>Ejecución</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>010</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-w-</span></code></p></td>
+<td class="text-center"><p>Escritura</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>011</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-wx</span></code></p></td>
+<td class="text-center"><p>Escritura y ejecución</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>100</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">r--</span></code></p></td>
+<td class="text-center"><p>Lectura</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>101</p></td>
+<td class="text-center"><p>5</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">r-x</span></code></p></td>
+<td class="text-center"><p>Lectura y ejecución</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>110</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">rw-</span></code></p></td>
+<td class="text-center"><p>Lectura y escritura</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>111</p></td>
+<td class="text-center"><p>7</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">rwx</span></code></p></td>
+<td class="text-center"><p>Lectura, escritura y ejecución</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> $ ls -l file.dat
+ -rwxr–-rw- 1 belphegor belphegor 114399 Dec 11 12:59 file.dat
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-rwxr-rw-</span></code> – Representa los permisos del archivo y se encuentra dividido en cuatro grupos: (<code class="docutils literal notranslate"><span class="pre">–</span></code>), (<code class="docutils literal notranslate"><span class="pre">rwx</span></code>), (<code class="docutils literal notranslate"><span class="pre">r--</span></code>) y (<code class="docutils literal notranslate"><span class="pre">rw-</span></code>).</p></li>
+<li><p>El primer grupo indica el tipo de archivo. Si <code class="docutils literal notranslate"><span class="pre">file</span></code> fuera un directorio, se cambiaria el guión por la letra <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p></li>
+<li><p>Los tres caracteres siguientes representan los permisos del propietario. Para este caso el propietario <code class="docutils literal notranslate"><span class="pre">belphegor</span></code> puede leer (<code class="docutils literal notranslate"><span class="pre">r</span></code>), escribir (<code class="docutils literal notranslate"><span class="pre">w</span></code>) y ejecutar (<code class="docutils literal notranslate"><span class="pre">x</span></code>) el archivo <code class="docutils literal notranslate"><span class="pre">file.dat</span></code>.</p></li>
+<li><p>Los siguientes tres son los permisos del grupo. Aquí observamos que el grupo <code class="docutils literal notranslate"><span class="pre">belphegor</span></code> tiene permisos de lectura (<code class="docutils literal notranslate"><span class="pre">r</span></code>), pero no de escritura (<code class="docutils literal notranslate"><span class="pre">w</span></code>) y ejecución (<code class="docutils literal notranslate"><span class="pre">x</span></code>). Esto debido a que aparece un guión en lugar de la respectiva letra.</p></li>
+<li><p>El último grupo representa los permisos de los usuarios restantes. Aquí observamos que sólo tiene permisos de lectura y escritura pero no de ejecución.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> – Representa la cantidad de enlaces fijos (hard links). Se le conoce como enlace fijo al nombre adicional para un archivo existente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">belphegor</span> <span class="pre">belphegor</span></code> – Propietario y grupo propietario del archivo <code class="docutils literal notranslate"><span class="pre">file.dat</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">114399</span></code> – Tamaño del archivo en bytes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dec</span> <span class="pre">11</span> <span class="pre">12:59</span></code> – Fecha de la última modificación.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file.dat</span></code> – Nombre del archivo o carpeta.</p></li>
+</ul>
+</section>
+<section id="atributos-de-archivos">
+<h3>Atributos de archivos<a class="headerlink" href="#atributos-de-archivos" title="Link to this heading">#</a></h3>
+<section id="cambia-el-propietario-del-archivo">
+<h4>Cambia el propietario del archivo<a class="headerlink" href="#cambia-el-propietario-del-archivo" title="Link to this heading">#</a></h4>
+<p>Para cambiar el propietario de un archivo o de una carpeta, podemos utilizar el comando <code class="docutils literal notranslate"><span class="pre">chown</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chown</span> <span class="p">[</span><span class="n">propietario</span><span class="o">/</span><span class="n">grupo</span><span class="p">]</span> <span class="p">[</span><span class="n">nombre_archivo</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-1">
+<h4>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h4>
+<p>Poner a <code class="docutils literal notranslate"><span class="pre">user</span></code> como propietario actual del archivo <code class="docutils literal notranslate"><span class="pre">file.dat</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chown</span> <span class="n">user</span> <span class="n">file</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-2">
+<h4>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h4>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">file.dat</span></code> pertenece al grupo <code class="docutils literal notranslate"><span class="pre">group</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chown</span> <span class="p">:</span><span class="n">group</span> <span class="n">file</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-3">
+<h4>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h4>
+<p>Cambiar el grupo y propietar al mismo tiempo del archivo <code class="docutils literal notranslate"><span class="pre">file.dat</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chown</span> <span class="n">user</span><span class="p">:</span><span class="n">group</span> <span class="n">file</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+<p>Para cambiar el grupo al cual pertenece un archivo o directorio, podemos utilizar el comando <code class="docutils literal notranslate"><span class="pre">chgrp</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chgrp</span> <span class="n">grupo</span> <span class="p">[</span><span class="n">nombre_archivo</span><span class="o">/</span><span class="n">nombre_carpeta</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h4>Ejemplo 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chgrp</span> <span class="n">group</span> <span class="n">file</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Ejemplo 2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">chgrp</span> <span class="o">-</span><span class="n">R</span> <span class="n">group</span> <span class="n">nombre_carpeta</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="programacion-shell">
+<h2>Programación Shell.<a class="headerlink" href="#programacion-shell" title="Link to this heading">#</a></h2>
+</section>
+<section id="control-y-monitoreo-de-procesos">
+<h2>Control y monitoreo de Procesos.<a class="headerlink" href="#control-y-monitoreo-de-procesos" title="Link to this heading">#</a></h2>
+</section>
+<section id="comandos-avanzados-en-bash">
+<h2>Comandos Avanzados en bash.<a class="headerlink" href="#comandos-avanzados-en-bash" title="Link to this heading">#</a></h2>
+</section>
+<section id="programacion-shell-avanzada">
+<h2>Programación Shell avanzada.<a class="headerlink" href="#programacion-shell-avanzada" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="home.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Contenido del curso</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JESP_02_Introduccion_programacion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filosofia-de-linux-unix">Filosofía de Linux/Unix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel">Kernel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios">Repositorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal">Terminal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lista-de-terminales">Lista de terminales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compatibles-con-posix">Compatibles con POSIX</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativas">Alternativas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entornos-de-escritorio">Entornos de escritorio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-para-crear-gui">Herramientas para crear GUI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-archivos-en-linux-unix">Sistema de Archivos en Linux/Unix.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tablas-de-particiones">Tablas de particiones</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#master-boot-record-mbr">Master Boot Record (MBR)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guid-partition-table">GUID Partition Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers">Drivers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-gnu-linux-mint">Instalación de GNU/Linux Mint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-basicos-en-bash">Comandos básicos en bash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crear-copiar-mover-y-archivos-y-directorios">Crear, copiar, mover y archivos y directorios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#empaquetado-compresion-y-conversion-de-archivos">Empaquetado, compresión y conversión de archivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-y-tipos-de-archivos-herramientas-de-busqueda">Ubicación y tipos de archivos, herramientas de búsqueda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-sistema">Información del sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion-interna-del-sistema-operativo">Documentación interna del Sistema Operativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red">Red</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh">SSH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administracion-de-usuario">Administración de usuario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-de-procesos">Gestión de procesos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comenzando-a-usar-la-linea-de-comandos">Comenzando a usar la línea de comandos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permisos-y-propietarios-de-un-archivo">Permisos y propietarios de un archivo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-archivo">Tipos de archivo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permisos-numericos">Permisos numéricos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-de-archivos">Atributos de archivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cambia-el-propietario-del-archivo">Cambia el propietario del archivo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-shell">Programación Shell.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-y-monitoreo-de-procesos">Control y monitoreo de Procesos.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comandos-avanzados-en-bash">Comandos Avanzados en bash.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programacion-shell-avanzada">Programación Shell avanzada.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jesús Emmanuel Solís Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

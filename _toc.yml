@@ -1,0 +1,9 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: docs/home
+chapters:
+- file: docs/JESP_01_Introduccion_Linux_Unix
+- file: docs/JESP_02_Introduccion_programacion
+- file: docs/JESP_03_Aplicaciones_experimentacion
