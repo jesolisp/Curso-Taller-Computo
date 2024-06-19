@@ -1,12 +1,8 @@
 # Contenido del curso
 
-<img src="images/Tux.png" alt="isolated" width="100"/>
-
-## Información del académico
-
 <ul>
-  <li> Dr. Jesús Emmanuel Solís Pérez </li>
-  <li> Email: jsolisp@unam.mx </li>
+  <li> <b> Profesor: </b> Dr. Jesús Emmanuel Solís Pérez </li>
+  <li> <b> Correo: </b> jsolisp@unam.mx </li>
   <li> <a href="https://jesolisp.github.io"> Página personal del profesor </a> </li>
 </ul>
 
