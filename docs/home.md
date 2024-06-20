@@ -15,6 +15,8 @@
  <li> Implementar y computar algunos programas básicos de interés en algún lenguaje de programación libre. </li>
 </ul>
 
+## Información del académico
+
 <ul>
   <li> <b> Profesor: </b> Dr. Jesús Emmanuel Solís Pérez </li>
   <li> <b> Correo: </b> jsolisp@unam.mx </li>
@@ -65,4 +67,4 @@ La conducta del profesorado y alumnado del curso será acorde con los principios
 </ol>
 
 
-(Última modificación: 17 de junio de 2022)
+(Última modificación: 19 de junio de 2022)
